@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:horizontal="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="themes/myAppTheme.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+
+
+<div data-role="page" id="home" style="background:#26fdf8" >
+    <div data-role="header">
+        <h1 style="color:#33ccff">Calorie Counter</h1>
+    </div>
+    <div data-role="header" >
+        <div class="form">
+            <label>What did you eat for?</label>
+
+        </div>
+
+
+
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#food_addition_breakfast" data-icon="grid" data-transition="slidefade" style="background:yellow;color:#000000;font-family:sans-serif">Breakfast</a> </li>
+            <li><a href="#food_addition_lunch" data-icon="grid" data-transition="slidefade" style="background:#ff8a31;color:#000000;font-family:sans-serif">Lunch</a> </li>
+            <li><a href="#food_addition_dinner" data-icon="grid" data-transition="slidefade" style="background:#4272fa;color:#000000;font-family:sans-serif">Dinner</a> </li>
+        </ul>
+
+    </div>
+    <!-- /header -->
+    <!-- /content -->
+    <div data-role="footer">
+        <h4>@ZaloopaINC</h4>
+    </div>
+    <!-- /footer -->
+</div>
+
+<div data-role="page" id="food_addition_breakfast" style="background:#faff68">
+    <div data-role="header">
+        <h1>Food Addition</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+
+
+        <form name="textInput" >
+
+            <input type="text" name="food_name_breakfast" id="food_name_breakfast" placeholder="Enter food's name" />
+            <input type="text" name="amount_cal" id="amount_cal_breakfast" placeholder="Enter the amount in calories"/>
+
+        </form>
+        <button onclick="inputDataBreakfast()" name="addBtn" >Add to the list</button>
+        <button onclick="getAmountBreakfast()">Get Amount Of Calories</button>
+        <form>
+            <input type="text" name="output" id="output"/>
+        </form>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slidefade" data-icon="home">Home</a> </li>
+            </ul>
+        </div>
+
+        <script>
+            function inputDataBreakfast(){
+                var food_name = document.getElementById("food_name_breakfast");
+                var food_nameStr = food_name.value;
+                var amount_cal = document.getElementById("amount_cal_breakfast");
+                var amount_calStr = amount_cal.value;
+                //document.write(food_nameStr);
+                //document.write(amount_calStr);
+                var nameTest = food_name.name;
+                vm.inputData(food_name.name,food_nameStr,amount_calStr);
+                food_name.value = " ";
+                amount_cal.value = " ";
+
+
+
+            }
+
+
+        </script>
+        <script>
+            function getAmountBreakfast(){
+                var outputText = document.getElementById("output");
+                var foodIdBreakfast = document.getElementById("food_name_breakfast");
+                //not sure yet if will work
+                var nameTestId = foodIdBreakfast.name;
+
+                outputText.value = vm.getAmount(foodIdBreakfast.name);
+
+            }
+        </script>
+
+    </div>
+    <!-- /content -->
+    <div data-role="footer">
+        <h4> @ZaloopaInc</h4>
+    </div>
+    <!-- /footer -->
+</div>
+
+<div data-role="page" id="help">
+    <div data-role="header">
+        <h1>help title</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+        <p>This is the help page...</p>
+        <p><a href="#about" data-transition="slidefade">about</a>
+        </p><p><a href="#home" data-transition="slidefade">home</a></p>
+    </div><!-- /content -->
+    <div data-role="footer">
+        <h4>help footer</h4>
+    </div>
+    <!-- /footer -->
+</div>
+<div data-role="page" id="food_addition_lunch" style="background:#ffc27c">
+    <div data-role="header">
+        <h1>Food Addition</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+
+
+        <form name="textInput" >
+
+            <input type="text" name="food_name_lunch" id="food_name_lunch" placeholder="Enter food's name" />
+            <input type="text" name="amount_cal" id="amount_cal_lunch" placeholder="Enter the amount in calories"/>
+
+        </form>
+        <button onclick="inputDataLunch()" name="addBtn" >Add to the list</button>
+        <button onclick="getAmountLunch()">Get Amount Of Calories</button>
+        <form>
+            <input type="text" name="output" id="output2"/>
+        </form>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slidefade" data-icon="home">Home</a> </li>
+            </ul>
+        </div>
+
+        <script>
+            function inputDataLunch(){
+                var food_nameLunch = document.getElementById("food_name_lunch");
+                var food_nameStr = food_nameLunch.value;
+                var amount_cal = document.getElementById("amount_cal_lunch");
+                var amount_calStr = amount_cal.value;
+                //document.write(food_nameStr);
+                //document.write(amount_calStr);
+                var nameTest = food_nameLunch.name;
+                vm.inputData(food_nameLunch.name ,food_nameStr,amount_calStr);
+                food_nameLunch.value = " ";
+                amount_cal.value = " ";
+
+
+
+            }
+
+
+        </script>
+        <script>
+            function getAmountLunch(){
+                var outputText2 = document.getElementById("output2");
+                var foodIdLunch = document.getElementById("food_name_lunch");
+                var nameTestId = foodIdLunch.name
+                //not sure yet if will work
+
+                outputText2.value = vm.getAmount(foodIdLunch.name);
+
+            }
+        </script>
+
+    </div>
+    <!-- /content -->
+    <div data-role="footer">
+        <h4> @ZaloopaInc</h4>
+    </div>
+    <!-- /footer -->
+
+</div>
+<div data-role="page" id="food_addition_dinner" style="background:#2d5ea9">
+    <div data-role="header">
+        <h1>Food Addition</h1>
+    </div><!-- /header -->
+    <div data-role="content">
+
+        <form name="textInput" >
+
+            <input type="text" name="food_name_dinner" id="food_name_dinner" placeholder="Enter food's name" />
+            <input type="text" name="amount_cal" id="amount_cal_dinner" placeholder="Enter the amount in calories"/>
+
+        </form>
+        <button onclick="inputDataDinner()" name="addBtn" >Add to the list</button>
+        <button onclick="getAmountDinner()">Get Amount Of Calories</button>
+        <form>
+            <input type="text" name="output" id="output3"/>
+        </form>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slidefade" data-icon="home">Home</a> </li>
+            </ul>
+        </div>
+
+        <script>
+            function inputDataDinner(){
+                var food_nameDinner = document.getElementById("food_name_dinner");
+                var food_nameStr = food_nameDinner.value;
+                var amount_cal = document.getElementById("amount_cal_dinner");
+                var amount_calStr = amount_cal.value;
+                //document.write(food_nameStr);
+                //document.write(amount_calStr);
+                var nameTest = food_nameDinner.name;
+                vm.inputData(food_nameDinner.name,food_nameStr,amount_calStr);
+                food_nameDinner.value = " ";
+                amount_cal.value = " ";
+
+
+
+            }
+
+
+        </script>
+        <script>
+            function getAmountDinner(){
+                var outputText3 = document.getElementById("output3");
+                var foodIdDinner = document.getElementById("food_name_dinner");
+                //not sure yet if will work
+                var nameTestId = foodIdDinner.name;
+
+                outputText3.value = vm.getAmount(foodIdDinner.name);
+
+            }
+        </script>
+
+    </div>
+    <!-- /content -->
+    <div data-role="footer">
+        <h4> @ZaloopaInc</h4>
+    </div>
+    <!-- /footer -->
+
+</div>
+</body>
+<style type="text/css">
+    .form {
+		margin: 0 auto;
+		width: 210px;
+	}
+
+	.form label{
+		display: inline-block;
+		font-size: 20px;
+		color: #1cdf01;
+		text-align: right;
+		float: left;
+	}
+
+	.form input{
+		display: inline-block;
+		text-align: left;
+		float: right;
+	}
+
+</style>
